@@ -27,7 +27,7 @@ public class DrivebaseSubsystem extends SubsystemBase {
 
   private double m_y = 0;
   private double m_x = 0;
-  private double m_scale = 1;
+  private double m_scale = 0.5;
 
   private boolean rotating = false;
   private double rightPow = 0;
