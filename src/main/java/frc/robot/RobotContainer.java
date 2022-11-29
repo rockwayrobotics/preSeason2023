@@ -9,6 +9,7 @@ import frc.robot.Constants.Controllers;
 import frc.robot.Constants.Digital;
 
 import frc.robot.subsystems.DrivebaseSubsystem;
+import frc.robot.subsystems.PIDTestSubsystem;
 
 import edu.wpi.first.wpilibj.XboxController;
 
@@ -51,6 +52,9 @@ public class RobotContainer {
     Digital.RIGHT_ENCODER_1, Digital.RIGHT_ENCODER_2
   );
 
+  private PIDTestSubsystem m_pidtestsubsystem = new PIDTestSubsystem(CAN.PID_MOTOR);
+  
+
   private XboxController m_xboxController = new XboxController(Controllers.XBOX);
 
   ShuffleboardTab tab = Shuffleboard.getTab("Speeds");
@@ -87,8 +91,11 @@ public class RobotContainer {
     new JoystickButton(m_xboxController, XboxController.Button.kLeftBumper.value)
     .whenPressed(() -> m_drivebase.setScale(0.5))
     .whenReleased(() -> m_drivebase.setScale(1));  // Sets drivebase to half speed, for more precise and slow movement (likely going to be used inside hangar)
-
-
+    
+    new JoystickButton(m_xboxController, XboxController.Button.kA.value)
+    .whenPressed(() -> m_pidtestsubsystem.spin(0.6))
+    .whenReleased(() -> m_pidtestsubsystem.spin(0));  
+    
     /* 
     This is example code for more robot functions
 
