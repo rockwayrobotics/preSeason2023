@@ -34,11 +34,15 @@ public class PIDTestSubsystem extends SubsystemBase{
 
   
   /**
-   * Spins the index wheel at a specified power level.
-   * @param indexPow Speed to spin the wheel. -1 is full backwards, 1 is full forwards.
+   * Spins the motor at a specified power level.
+   * @param PIDPow Speed to spin the wheel. -1 is full backwards, 1 is full forwards.
    */
   public void spin(double PIDPow) {
-   m_pidtestPow = PIDPow;
-   m_pidtest.set(m_pidtestPow);
+    m_pidtestPow = PIDPow;
+  }
+
+  @Override
+  public void periodic(){
+    m_pidtest.set(m_pidtestPow);
   }
 }
