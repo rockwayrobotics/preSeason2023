@@ -31,7 +31,7 @@ public final class Constants {
         public static final int LEFT_MOTOR_2 = 2;
         public static final int RIGHT_MOTOR_1 = 3;
         public static final int RIGHT_MOTOR_2 = 4;
-        public static final int PID_MOTOR = 10;
+        public static final int PID_MOTOR = 6;
     }
     
     // Information on digital pins on RoboRio
