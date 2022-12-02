@@ -9,7 +9,7 @@ import frc.robot.Constants.Controllers;
 import frc.robot.Constants.Digital;
 
 import frc.robot.subsystems.DrivebaseSubsystem;
-
+import frc.robot.subsystems.SpinMotorSubsystem;
 import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.Command;
@@ -51,6 +51,12 @@ public class RobotContainer {
     Digital.RIGHT_ENCODER_1, Digital.RIGHT_ENCODER_2
   );
 
+  private SpinMotorSubsystem m_spinmotor = new SpinMotorSubsystem(
+    CAN.SPIN_MOTOR
+  );
+
+
+
   private XboxController m_xboxController = new XboxController(Controllers.XBOX);
 
   ShuffleboardTab tab = Shuffleboard.getTab("Speeds");
@@ -88,6 +94,9 @@ public class RobotContainer {
     .whenPressed(() -> m_drivebase.setScale(0.5))
     .whenReleased(() -> m_drivebase.setScale(1));  // Sets drivebase to half speed, for more precise and slow movement (likely going to be used inside hangar)
 
+    new JoystickButton(m_xboxController, XboxController.Button.kA.value)
+    .whenPressed(() -> m_spinmotor.spin(0.5))
+    .whenReleased(()-> m_spinmotor.spin(0));
 
     /* 
     This is example code for more robot functions
