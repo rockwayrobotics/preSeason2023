@@ -7,9 +7,10 @@ package frc.robot;
 import frc.robot.Constants.CAN;
 import frc.robot.Constants.Controllers;
 import frc.robot.Constants.Digital;
+import frc.robot.Constants.Pneumatics;
 
 import frc.robot.subsystems.DrivebaseSubsystem;
-
+import frc.robot.subsystems.LifterSubsystem;
 import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.Command;
@@ -51,6 +52,14 @@ public class RobotContainer {
     Digital.RIGHT_ENCODER_1, Digital.RIGHT_ENCODER_2
   );
 
+  private LifterSubsystem m_LifterSubsystem = new LifterSubsystem(
+    Pneumatics.CLAW_EXTEND, 
+    Pneumatics.CLAW_RETRACT, 
+    CAN.CLAW_ELEVATOR,
+    Digital.TOP_ELEVATOR_LIMIT,
+    Digital.BOTTOM_ELEVATOR_LIMIT
+  );
+
   private XboxController m_xboxController = new XboxController(Controllers.XBOX);
 
   ShuffleboardTab tab = Shuffleboard.getTab("Speeds");
@@ -87,6 +96,15 @@ public class RobotContainer {
     new JoystickButton(m_xboxController, XboxController.Button.kLeftBumper.value)
     .whenPressed(() -> m_drivebase.setScale(0.5))
     .whenReleased(() -> m_drivebase.setScale(1));  // Sets drivebase to half speed, for more precise and slow movement (likely going to be used inside hangar)
+
+    m_LifterSubsystem.setDefaultCommand(
+      new RunCommand(
+        () -> m_LifterSubsystem.moveElevator(m_xboxController.getRightX()),
+        m_LifterSubsystem)
+    );
+
+    new JoystickButton(m_xboxController, XboxController.Button.kA.value)
+    .whenPressed(() -> m_LifterSubsystem.toggleClaw());
 
 
     /* 

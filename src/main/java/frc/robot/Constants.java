@@ -6,6 +6,7 @@ package frc.robot;
 
 
 import com.revrobotics.CANSparkMax.IdleMode;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 
 
 /**
@@ -31,6 +32,7 @@ public final class Constants {
         public static final int LEFT_MOTOR_2 = 2;
         public static final int RIGHT_MOTOR_1 = 3;
         public static final int RIGHT_MOTOR_2 = 4;
+        public static final int CLAW_ELEVATOR = 5;
     }
     
     // Information on digital pins on RoboRio
@@ -39,14 +41,23 @@ public final class Constants {
         public static final int LEFT_ENCODER_2 = 1;
         public static final int RIGHT_ENCODER_1 = 2;
         public static final int RIGHT_ENCODER_2 = 3;
+        public static final int TOP_ELEVATOR_LIMIT = 4;
+        public static final int BOTTOM_ELEVATOR_LIMIT = 5;
     }
     
     // Constants related to robot driving
     public static final class Drive {
-        public final static double ENCODER_PULSES_PER_REVOLUTION = 360;
-        public final static double WHEEL_DIAMETER = 6;
-        public final static double DISTANCE_PER_ENCODER_PULSE = WHEEL_DIAMETER * Math.PI / ENCODER_PULSES_PER_REVOLUTION;
-        public final static IdleMode ACTIVE_MODE = IdleMode.kBrake;
-        public final static IdleMode DISABLED_MODE = IdleMode.kCoast;
+        public static final double ENCODER_PULSES_PER_REVOLUTION = 360;
+        public static final double WHEEL_DIAMETER = 6;
+        public static final double DISTANCE_PER_ENCODER_PULSE = WHEEL_DIAMETER * Math.PI / ENCODER_PULSES_PER_REVOLUTION;
+        public static final IdleMode ACTIVE_MODE = IdleMode.kBrake;
+        public static final IdleMode DISABLED_MODE = IdleMode.kCoast;
+    }
+
+    // Constants related to pneumatics
+    public static final class Pneumatics {
+        public static final PneumaticsModuleType PNEUMATICS_MODULE_TYPE = PneumaticsModuleType.CTREPCM;
+        public static final int CLAW_EXTEND = 0;
+        public static final int CLAW_RETRACT = 1;
     }
 }
