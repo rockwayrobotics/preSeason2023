@@ -1,8 +1,3 @@
-# FRC-2023
+# 2023 Pre-Season Code
 
-<p align="center">
-  <img  height="50" src="https://forthebadge.com/images/badges/works-on-my-machine.svg" alt="Works on my machine"/>
-</p>
-
-Code repository for the 2023 pre season drivebase - FRC 8089  
-It compiles on my computer - Colin
+Experimental code used for testing and learning for the 2023 pre-season. Different projects can be found in different branches.
