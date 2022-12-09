@@ -22,6 +22,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 //import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.wpilibj.DigitalInput;
 //import edu.wpi.first.networktables.NetworkTableInstance;
 //import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.GenericHID;
@@ -40,6 +41,9 @@ import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
  * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
  * subsystems, commands, and button mappings) should be declared here.
  */
+
+
+ 
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
 
@@ -52,7 +56,8 @@ public class RobotContainer {
   );
 
   private SpinMotorSubsystem m_spinmotor = new SpinMotorSubsystem(
-    CAN.SPIN_MOTOR
+   CAN.SPIN_MOTOR
+  
   );
 
 
@@ -74,13 +79,13 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
   }
-
   /**
    * Use this method to define your button->command mappings. Buttons can be created by
    * instantiating a {@link GenericHID} or one of its subclasses ({@link
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
+  
   private void configureButtonBindings() {
     
     m_drivebase.setDefaultCommand(
@@ -94,7 +99,7 @@ public class RobotContainer {
     .whenPressed(() -> m_drivebase.setScale(0.5))
     .whenReleased(() -> m_drivebase.setScale(1));  // Sets drivebase to half speed, for more precise and slow movement (likely going to be used inside hangar)
 
-    new JoystickButton(m_xboxController, XboxController.Button.kA.value)
+    new JoystickButton(m_xboxController, XboxController.Button.kLeftBumper.value)
     .whenPressed(() -> m_spinmotor.spin(0.5))
     .whenReleased(()-> m_spinmotor.spin(0));
 
