@@ -95,6 +95,13 @@ public class RobotContainer {
     new JoystickButton(m_xboxController, XboxController.Button.kA.value)
     .whenPressed(() -> m_pidtestsubsystem.spin(0.6))
     .whenReleased(() -> m_pidtestsubsystem.spin(0));  
+
+    new JoystickButton(m_xboxController, XboxController.Button.kB.value)
+    .whenPressed(() -> m_pidtestsubsystem.pidspin());
+
+    new JoystickButton(m_xboxController, XboxController.Button.kY.value)
+    .whenPressed(() -> m_pidtestsubsystem.pidstop());
+
     
     /* 
     This is example code for more robot functions
