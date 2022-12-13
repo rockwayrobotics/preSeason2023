@@ -33,13 +33,13 @@ public class PIDTestSubsystem extends SubsystemBase{
     // PID coefficients; a few pulled from SysID to start with 
     // Also used https://www.chiefdelphi.com/t/spark-max-w-neos-pid-not-getting-to-setpoint/381728/2 for kFF
 
-    kP = 0.0029014 * 4100.0/3500.0;
+    kP = 0.0029014; 
     kI = 0;
-    kD = 0.023716; 
+    kD = 0; 
     kIz = 0; 
     kFF = 2.439024390243902e-4;
     kMaxOutput = 1; 
-    kMinOutput = -1;
+    kMinOutput = 0;
     kVelocityTarget = 4100;
 
     // Set PID Coeffiecients
@@ -92,6 +92,7 @@ public class PIDTestSubsystem extends SubsystemBase{
     }
 
     // m_pidcontroller.setReference(kVelocityTarget, CANSparkMax.ControlType.kVelocity);
+    // m_pidcontroller.setFeedbackDevice(m_pidEncoder);
   }
 
   /**
@@ -123,6 +124,6 @@ public class PIDTestSubsystem extends SubsystemBase{
   public void periodic(){
     SmartDashboard.putNumber("Current Motor RPM", m_pidEncoder.getVelocity());
     spinPIDTestSpeed();
-    m_pidtest.set(m_pidtestPow);
+    //m_pidtest.set(m_pidtestPow);
   }
 }
