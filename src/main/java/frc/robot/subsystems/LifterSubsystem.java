@@ -67,6 +67,6 @@ public class LifterSubsystem extends SubsystemBase {
     if(m_elevatorSpeed > 0 && m_topLimitSwitch.get() || m_elevatorSpeed < 0 && m_bottomLimitSwitch.get()) {
       m_elevatorSpeed = 0;
     }
-    m_clawElevator.set(m_elevatorSpeed);
+    m_clawElevator.set(m_elevatorSpeed*.3);
   }
 }
