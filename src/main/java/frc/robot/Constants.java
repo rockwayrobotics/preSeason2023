@@ -57,7 +57,7 @@ public final class Constants {
     // Constants related to pneumatics
     public static final class Pneumatics {
         public static final PneumaticsModuleType PNEUMATICS_MODULE_TYPE = PneumaticsModuleType.CTREPCM;
-        public static final int CLAW_EXTEND = 0;
-        public static final int CLAW_RETRACT = 1;
+        public static final int CLAW_EXTEND = 1;
+        public static final int CLAW_RETRACT = 0;
     }
 }

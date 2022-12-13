@@ -99,7 +99,7 @@ public class RobotContainer {
 
     m_LifterSubsystem.setDefaultCommand(
       new RunCommand(
-        () -> m_LifterSubsystem.moveElevator(m_xboxController.getRightX()),
+        () -> m_LifterSubsystem.moveElevator(m_xboxController.getRightY()),
         m_LifterSubsystem)
     );
 
