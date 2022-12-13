@@ -28,7 +28,7 @@ public class LifterSubsystem extends SubsystemBase {
     int clawExtend, int clawRetract, int clawElevator, int topLimitSwitch, int bottomLimitSwitch
   ) {
     m_clawPneumatics = new DoubleSolenoid(Pneumatics.PNEUMATICS_MODULE_TYPE, clawExtend, clawRetract);
-    m_clawElevator = new CANSparkMax(clawElevator, MotorType.kBrushless);
+    m_clawElevator = new CANSparkMax(clawElevator, MotorType.kBrushed);
 
     m_topLimitSwitch = new DigitalInput(topLimitSwitch);
     m_bottomLimitSwitch = new DigitalInput(bottomLimitSwitch);
